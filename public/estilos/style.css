@@ -15,6 +15,7 @@
 a,
 a:link {
   text-decoration: none !important;
+  font-weight: bold;
 }
 
 a:hover {
@@ -150,6 +151,22 @@ p.destaque {
 .card .blocoCentral h1 {
   font-size: 2rem;
   font-weight: 800;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card ul li {
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  padding-left: 0.2cm;
+  margin-top: 0.5cm;
+}
+
+.card ul .subtitulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+
 }
 
 @media only screen and (max-width: 600px) {
