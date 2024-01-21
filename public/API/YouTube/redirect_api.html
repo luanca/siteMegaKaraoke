@@ -1,0 +1,107 @@
+<!-- Criado por Luan Carvalho em 21.01.2024 01:07 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Redirecionamento da API do YouTube</title>
+    </head>
+    <body>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+            body {
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+            }
+            .EspacamentoCentralizado {
+                width: 100%;
+                max-width: 1000px;
+                display: inline-flex;
+                background-color: #111;
+                margin: 1vh 0;
+                min-height: 98vh;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                padding: 1%;
+            }
+            header {
+                padding: 1.3em;
+            }
+            footer {
+                padding: 1.1em;
+                border-top: 1px solid #aaa;
+                text-align: right;
+                width: 100%;
+                margin-top: 0.5cm;
+            }
+            input {
+                background-color: #aaa;
+                border: 0px;
+                padding: 0.3em;
+                border-radius: 0.3em;
+            }
+            input[Esconder="SIM"] {
+                display: none;
+            }
+        </style>
+        <div class="EspacamentoCentralizado">
+            <header>
+                <h1 id="cabecalho">Lorem, ipsum dolor sit</h1>
+            </header>
+            <div>
+                <p id="mensagem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, at? Voluptate ipsam exercitationem dolores pariatur quidem, doloribus minus sunt consequuntur repudiandae cum atque facilis quis ratione hic, quasi consequatur corporis.</p><br />
+                <input type="button" value="Copiar código" onclick="javascript:Copiar()" id="botao" Esconder="SIM" />
+            </div>
+            <footer>© Mega Karaokê</footer>
+        </div>
+        <script>
+            var CodeDeRetorno = "";
+
+            function ObterResposta() {
+                // Processar resposta do Google
+                var TCabecalho = "";
+                var TMensagem = "";
+                var UrlAtual = window.location.href;
+                var IndiceInterrogacao = UrlAtual.indexOf("?");
+                var ParametrosUrl = UrlAtual.slice(IndiceInterrogacao + 1);
+                var ArrayParametrosUrl = ParametrosUrl.split("&");
+                var DadosGoogle = {};
+                ArrayParametrosUrl.forEach(par => {
+                    var ArrayDadosGoogle = par.split("=");
+                    DadosGoogle[ArrayDadosGoogle[0]] = ArrayDadosGoogle[1];
+                });
+
+                // Verificando se tem um code ou um error
+                if (DadosGoogle.code !== undefined) {
+                    TCabecalho = "Tudo certo!";
+                    TMensagem = "Você conseguiu entrar. Agora você tem acesso as informações do projeto.<br />Clique em “Copiar código” e cole no script Powershell. Após isso, pode fechar essa página.<br />Sucesso!";
+                    CodeDeRetorno = DadosGoogle.code;
+                    document.getElementById("botao").setAttribute("Esconder", "NAO");
+                } else if (DadosGoogle.error == "access_denied") {
+                    TCabecalho = "Algo não deu certo!";
+                    TMensagem = "Você recusou a solicitação!<br />Se você se enganou e deseja logar novamente, siga as instruções do script PowerShell para reabrir a página da solicitação. Você pode fechar essa página.";
+                } else {
+                    TCabecalho = "Algo não deu certo!";
+                    TMensagem = "Siga as instruções do script PowerShell para reabrir a página da solicitação. Você pode fechar essa página.";
+                }
+                document.getElementById("cabecalho").innerHTML = TCabecalho;
+                document.getElementById("mensagem").innerHTML = TMensagem;
+                document.title = TCabecalho + " - Mega Karaokê";
+            }
+
+            function Copiar() {
+                // Enviar texto para a área de transferencia
+                navigator.clipboard.writeText(CodeDeRetorno);
+                alert("Copiado!")
+            }
+
+            ObterResposta();
+        </script>
+    </body>
+</html>
