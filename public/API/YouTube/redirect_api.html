@@ -97,7 +97,7 @@
 
             function Copiar() {
                 // Enviar texto para a área de transferencia
-                navigator.clipboard.writeText(CodeDeRetorno);
+                navigator.clipboard.writeText(decodeURIComponent(CodeDeRetorno));
                 document.getElementById("botao").setAttribute("value", "COPIADO!");
                 setTimeout(function() {document.getElementById("botao").setAttribute("value", "Copiar código");}, 5000);
             }
