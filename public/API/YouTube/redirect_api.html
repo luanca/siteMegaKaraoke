@@ -52,10 +52,11 @@
         </style>
         <div class="EspacamentoCentralizado">
             <header>
-                <h1 id="cabecalho">Lorem, ipsum dolor sit</h1>
+                <h1 id="cabecalho"></h1>
             </header>
             <div>
-                <p id="mensagem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, at? Voluptate ipsam exercitationem dolores pariatur quidem, doloribus minus sunt consequuntur repudiandae cum atque facilis quis ratione hic, quasi consequatur corporis.</p><br />
+                <p id="mensagem"></p><br />
+                <p style="color: red;">Não compartilhe esse código fora do projeto Mega Karaokê</p><br />
                 <input type="button" value="Copiar código" onclick="javascript:Copiar()" id="botao" Esconder="SIM" />
             </div>
             <footer>© Mega Karaokê</footer>
@@ -68,8 +69,8 @@
                 var TCabecalho = "";
                 var TMensagem = "";
                 var UrlAtual = window.location.href;
-                var IndiceInterrogacao = UrlAtual.indexOf("?");
-                var ParametrosUrl = UrlAtual.slice(IndiceInterrogacao + 1);
+                var IndiceHashtag = UrlAtual.indexOf("#");
+                var ParametrosUrl = UrlAtual.slice(IndiceHashtag + 1);
                 var ArrayParametrosUrl = ParametrosUrl.split("&");
                 var DadosGoogle = {};
                 ArrayParametrosUrl.forEach(par => {
@@ -78,10 +79,14 @@
                 });
 
                 // Verificando se tem um code ou um error
-                if (DadosGoogle.code !== undefined) {
+                if (DadosGoogle.access_token !== undefined) {
                     TCabecalho = "Tudo certo!";
-                    TMensagem = "Você conseguiu entrar. Agora você tem acesso as informações do projeto.<br />Clique em “Copiar código” e cole no script Powershell. Após isso, pode fechar essa página.<br />Sucesso!";
-                    CodeDeRetorno = DadosGoogle.code;
+                    TMensagem = "Você conseguiu entrar. Agora você tem acesso as informações do projeto.<br />Clique em “Copiar código” e cole no script PowerShell. Após isso, pode fechar essa página.<br />Sucesso!";
+                    CodeDeRetorno = DadosGoogle.token_type;
+                    CodeDeRetorno += "§";
+                    CodeDeRetorno += DadosGoogle.expires_in;
+                    CodeDeRetorno += "§";
+                    CodeDeRetorno += DadosGoogle.access_token;
                     document.getElementById("botao").setAttribute("Esconder", "NAO");
                 } else if (DadosGoogle.error == "access_denied") {
                     TCabecalho = "Algo não deu certo!";
