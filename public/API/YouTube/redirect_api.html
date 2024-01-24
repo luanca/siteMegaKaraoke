@@ -87,6 +87,8 @@
                     CodeDeRetorno += DadosGoogle.expires_in;
                     CodeDeRetorno += "§";
                     CodeDeRetorno += DadosGoogle.access_token;
+                    CodeDeRetorno += "§";
+                    CodeDeRetorno += ( new Date() ).toJSON();
                     document.getElementById("botao").setAttribute("Esconder", "NAO");
                 } else if (DadosGoogle.error == "access_denied") {
                     TCabecalho = "Algo não deu certo!";
