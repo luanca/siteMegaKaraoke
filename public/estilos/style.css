@@ -16,6 +16,7 @@ a,
 a:link {
   text-decoration: none !important;
   font-weight: bold;
+  display: inline;
 }
 
 a:hover {
@@ -31,40 +32,50 @@ a:hover img {
 body {
   width: 100%;
   height: 100%;
-  background-color: #2B0042;
-  /*background-image: radial-gradient(circle, #181D31 30%, transparent), conic-gradient(#181D31 10%, #6E1046 35%, #181D31 60%, #181D31 69%, #6E1046 80%, #181D31 92%);*/
-  background-image: linear-gradient(150deg, #2B0042, #23003A);
+  background-color: #111;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
 header {
-  display: flex;
+  display: block;
   width: 100%;
-  margin-bottom: 5px;
-  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding: 0 1vw;
+  background-image: linear-gradient(150deg, #2B0042, #23003A);
   position: sticky;
   top: 0;
   left: 0;
-  padding: 0.3vmin;
   backdrop-filter: blur(1vmax) blur(0.5vmax);
+}
+
+.headerEsp {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
 
-header .logo {
-  margin-left: 1vmin;
+.headerEsp .logo {
+  display: inline-block;
+  width: 17%;
+  min-width: 5cm;
+  margin: 1% 0;
 }
 
-header .logo img {
-  max-height: 1.2cm;
+.headerEsp .logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
   padding: 0.7vmin;
 }
 
-header .links a,
-header .links a:link {
+.headerEsp .links a,
+.headerEsp .links a:link {
   margin-right: 1vmin;
 }
 
@@ -73,10 +84,23 @@ header .links a:link {
 }
 
 footer {
-  display: inline-block;
+  display: block;
   width: 100%;
-  padding: 3px 1%;
-  background-color: #190027;
+  margin: 0;
+  padding: 0 1vw;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.footerEsp {
+  display: flex;
+  width: 100%;
+  height: 1.5cm;
+  max-width: 1100px;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 footer img.iconeMK {
@@ -86,10 +110,12 @@ footer img.iconeMK {
 }
 
 .conteudo {
-  display: inline-block;
+  display: block;
   width: 100%;
-  padding: 0 1%;
+  max-width: 1100px;
+  margin: auto;
   min-height: 70vh;
+  padding: 0 1vw;
 }
 
 .cardTela {
@@ -110,25 +136,17 @@ p.destaque {
 }
 
 .iconeMidiasSociais {
-  width: 0.7cm;
+  width: 0.5cm;
   margin: 0 0 0 0.3cm;
   display: flex;
 }
 
-.icons {
+.fooIcons {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-}
-
-.centralizarNaVertical {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
 }
 
 .fonteLeve {
@@ -158,15 +176,32 @@ p.destaque {
 }
 
 .card ul li {
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
-  padding-left: 0.2cm;
   margin-top: 0.5cm;
+  border-top: 1px solid #aaa;
 }
 
 .card ul .subtitulo {
   font-size: 1.5rem;
   font-weight: 600;
 
+}
+
+.btnLista {
+  text-align: right;
+  display: block;
+  width: 100%;
+}
+
+.btLink {
+  display: inline-block;
+  background-color: #0a0a0a;
+  padding: 0.15cm;
+  border-radius: 0.1cm;
+  margin: 3px;
+}
+
+.card ul li .btLink {
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -185,12 +220,10 @@ p.destaque {
     display: none;
   }
 
-  .centralizarNaVertical {
-    flex-direction: column;
-  }
-
-  .iconeMidiasSociais {
-    flex-direction: row;
-    margin: 0.2cm 0.15cm 0 0.15cm;
-  }
+  p.destaque {
+    font-size: 3rem;
+    line-height: 3.15rem;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+  }  
 }
