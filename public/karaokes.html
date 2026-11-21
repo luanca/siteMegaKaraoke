@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#2B0042">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pesquise músicas do Mega Karaokê e cante com o player do canal.">
+  <title>Encontre seu karaokê — Mega Karaokê</title>
+  <link rel="stylesheet" href="estilos/style.css">
+  <link rel="icon" href="icon.ico">
+  <script src="scripts/karaokes.js" defer></script>
+</head>
+<body class="karaokes-page">
+  <header class="site-header">
+    <div class="headerEsp">
+      <a class="logo" href="/" aria-label="Mega Karaokê — início">
+        <img src="imagens/logo_branco_ajustado.svg" alt="Mega Karaokê">
+      </a>
+      <nav class="links" aria-label="Navegação principal">
+        <a href="/">Início</a>
+        <a href="/karaokes.html" aria-current="page">Karaokês</a>
+        <a href="/documentos.html">Sobre o projeto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="conteudo catalog-content">
+    <header class="catalog-intro">
+      <p class="section-label">Cante com o Mega Karaokê</p>
+      <h1>Encontre seu karaokê.</h1>
+      <p>Pesquise por música, artista ou álbum/single. Ao escolher uma faixa pública, o player prepara os resultados públicos para você cantar em sequência. Vídeos programados aparecem identificados e poderão ser reproduzidos após a publicação.</p>
+    </header>
+
+    <section class="catalog-layout" aria-label="Busca e player de karaokês">
+      <div class="catalog-search">
+        <h2>Buscar músicas</h2>
+        <label for="karaoke-search">Música, artista, álbum ou link original</label>
+        <input id="karaoke-search" type="search" autocomplete="off" placeholder="Ex.: Nome da música, artista ou álbum" aria-label="Campo de busca de karaokês">
+        <p id="catalog-status" class="catalog-status" role="status" aria-live="polite">Carregando catálogo...</p>
+        <ul id="karaoke-results" class="karaoke-results" aria-label="Resultados da busca"></ul>
+        <p id="catalog-empty" class="catalog-empty" hidden>Nenhuma música encontrada. Tente outro título ou artista.</p>
+      </div>
+
+      <aside class="catalog-player" aria-label="Player de karaokê">
+        <p class="section-label">Player do canal</p>
+        <div class="video-player">
+          <iframe
+            id="karaoke-player"
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=UUOSx9oPg2WXFMA5CzC6HkOQ&amp;rel=0&amp;autoplay=0"
+            title="Playlist de envios do canal Mega Karaokê"
+            loading="eager"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="encrypted-media; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="player-note">Algumas músicas podem não ser exibidas aqui devido a restrições de direitos autorais. Nesses casos, você pode acessar a música original através dos links disponíveis.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footerEsp">
+      <p class="fooDireitos">© Mega Karaokê</p>
+      <nav class="fooIcons" aria-label="Redes sociais">
+        <a href="https://youtube.com/@MegaKaraokeOficial" target="_blank" rel="noopener noreferrer" title="Mega Karaokê no YouTube"><img src="imagens/MidiasSociais/YouTube.svg" class="iconeMidiasSociais" alt="YouTube"></a>
+        <a href="https://fb.com/MegaKaraokeOficial" target="_blank" rel="noopener noreferrer" title="Mega Karaokê no Facebook"><img src="imagens/MidiasSociais/Facebook.svg" class="iconeMidiasSociais" alt="Facebook"></a>
+        <a href="https://instagram.com/MegaKaraokeOficial" target="_blank" rel="noopener noreferrer" title="Mega Karaokê no Instagram"><img src="imagens/MidiasSociais/Instagram.svg" class="iconeMidiasSociais" alt="Instagram"></a>
+        <a href="https://linkedin.com/company/megakaraokeoficial" target="_blank" rel="noopener noreferrer" title="Mega Karaokê no LinkedIn"><img src="imagens/MidiasSociais/LinkedIn.svg" class="iconeMidiasSociais" alt="LinkedIn"></a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
