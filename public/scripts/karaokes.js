@@ -243,7 +243,12 @@ function renderResults() {
       album.textContent = video.album;
       button.append(album);
     }
-    button.addEventListener('click', () => selectVideo(video));
+    item.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        return;
+      }
+      selectVideo(video);
+    });
     item.append(button);
     const links = document.createElement('div');
     links.className = 'original-links result-original-links';

@@ -117,8 +117,7 @@ header {
   gap: 48px;
 }
 
-.eyebrow,
-.section-label {
+.eyebrow {
   color: var(--color-accent);
   font-size: 0.75rem;
   font-weight: 700;
@@ -191,10 +190,6 @@ header {
   min-width: 0;
 }
 
-.hero-player > .section-label {
-  margin-bottom: 14px;
-}
-
 .hero-player .text-link {
   margin-top: 14px;
 }
@@ -225,13 +220,12 @@ header {
 }
 
 .catalog-intro h1 {
-  margin-top: 14px;
   font-size: clamp(2.8rem, 6vw, 4.5rem);
   font-weight: 600;
   letter-spacing: -0.06em;
 }
 
-.catalog-intro > p:not(.section-label) {
+.catalog-intro > p {
   max-width: 620px;
   margin-top: 14px;
   color: var(--color-muted);
@@ -448,6 +442,7 @@ header {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.035);
   gap: 8px;
+  cursor: pointer;
   transition: border-color 160ms ease, background-color 160ms ease;
 }
 
@@ -472,13 +467,7 @@ header {
 .project-section {
   display: grid;
   padding: 42px 0 112px;
-  grid-template-columns: minmax(150px, 0.75fr) 2fr;
-  gap: 32px;
   border-top: 1px solid var(--color-border);
-}
-
-.section-label {
-  padding-top: 9px;
 }
 
 .project-content {
@@ -632,13 +621,12 @@ p.destaque {
 }
 
 .documents-intro h1 {
-  margin-top: 16px;
   font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 600;
   letter-spacing: -0.06em;
 }
 
-.documents-intro > p:not(.section-label) {
+.documents-intro > p {
   margin-top: 16px;
   color: var(--color-muted);
   font-size: 1.05rem;
@@ -822,18 +810,8 @@ p.destaque {
     font-size: clamp(3rem, 13vw, 5rem);
   }
 
-  .hero-player > .section-label {
-    margin-bottom: 10px;
-  }
-
   .project-section {
     padding: 32px 0 80px;
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .section-label {
-    padding-top: 0;
   }
 
   .documents-content {
